@@ -1,0 +1,4 @@
+bin/
+obj/
+src/gfx/*.8xv
+src/gfx/*.lst

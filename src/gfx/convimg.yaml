@@ -1,0 +1,38 @@
+palettes:
+  - name: palette
+    fixed-entries:
+      - color: {index: 0, r: 255, g: 255, b: 255 }
+    images: automatic
+
+converts:
+  - name: sprites
+    palette: palette
+    transparent-color-index: 0
+    images:
+# Ninja Idle Animation
+      - Ninja_Idle/sprite_0.png
+      - Ninja_Idle/sprite_1.png
+      - Ninja_Idle/sprite_2.png
+# NInja Jab Animation
+      - Ninja_Jab/sprite_0.png
+      - Ninja_Jab/sprite_1.png
+      - Ninja_Jab/sprite_2.png
+      - Ninja_Jab/sprite_3.png
+# Ninja Run Animation
+      - Ninja_Run/sprite_0.png
+      - Ninja_Run/sprite_1.png
+      - Ninja_Run/sprite_2.png
+      - Ninja_Run/sprite_3.png
+      - Ninja_Run/sprite_4.png
+      - Ninja_Run/sprite_5.png
+
+outputs:
+  - type: appvar
+    name: StkNnjaS
+    source-format: none
+    output-first: palettes
+    prepend-palette-sizes: true
+    palettes:
+      - palette
+    converts:
+      - sprites
