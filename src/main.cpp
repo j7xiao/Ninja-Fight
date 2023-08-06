@@ -1,21 +1,19 @@
-#include <graphx.h>
+#include <tice.h>
 
-#include "game.h"
-#include "input.h"
+#include "Game.h"
 
 J7::Game game{}; 
 
 int main(void)
 {
     game.start();
-    gfx_Begin();
 
     while(game.step())
     {
         game.draw();
+        game.fix30FPS();
     }
 
-    gfx_End();
     game.end();
 
     return 0;
