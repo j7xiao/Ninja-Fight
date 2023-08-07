@@ -2,19 +2,19 @@
 
 #include "Game.h"
 
-J7::Game game{}; 
+J7::Game game{};
 
 int main(void)
 {
-    game.start();
+    game.OnStart();
 
-    while(game.step())
+    while(game.OnStep())
     {
-        game.draw();
-        game.fix30FPS();
+        game.OnDraw();
+        game.Fix30FPS();
     }
 
-    game.end();
+    game.OnEnd();
 
     return 0;
 }

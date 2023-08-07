@@ -2,9 +2,9 @@
 # Makefile Options
 # ----------------------------
 
-NAME = STKNINJA
+NAME = NINJAFGT
 ICON = icon.png
-DESCRIPTION = "Stick Ninja!"
+DESCRIPTION = "NInja Fight!"
 COMPRESSED = YES
 ARCHIVED = YES
 

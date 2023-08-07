@@ -11,11 +11,11 @@ namespace J7
         uint16_t m_frametime;
 
     public:
-        void start();
-        void end();
-        bool step();
-        void draw();
-        void fix30FPS();
+        void OnStart();
+        void OnEnd();
+        bool OnStep();
+        void OnDraw();
+        void Fix30FPS();
     };
 
     extern Game game;

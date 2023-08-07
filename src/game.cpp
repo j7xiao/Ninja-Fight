@@ -6,13 +6,14 @@
 #include "AnimationController.h"
 #include "appvar.h"
 #include "Input.h"
+#include "Ninja.h"
 
 namespace J7
 {
-    AnimationController animContr {TILES_NINJA_IDLE, 6, &ninja_r_sprites[0]};
+    J7::Ninja player{ 0, 176, &ninja_r_sprites[0] };
 
     void
-    Game::start()
+    Game::OnStart()
     {
         timer_Control = (TIMER1_ENABLE | TIMER1_32K | TIMER1_UP);
         
@@ -21,21 +22,21 @@ namespace J7
         gfx_Begin();
         gfx_SetDrawBuffer();
 
-        load_sprites();
+        load_sprites();        
     }
 
     void
-    Game::end()
+    Game::OnEnd()
     {
         gfx_End();
         free_sprites();
     }
 
     bool
-    Game::step()
+    Game::OnStep()
     {
         input.OnUpdate();
-        animContr.OnUpdate();
+        player.OnUpdate();
 
         /* break from game loop if [CLEAR] is pressed*/
         if (input.IsKeyDown(kb_KeyClear)) { return false; }
@@ -44,16 +45,19 @@ namespace J7
     }
 
     void
-    Game::draw()
+    Game::OnDraw()
     {
         gfx_ZeroScreen(); // clear screen
 
-        gfx_RLETSprite_NoClip(animContr.GetSprite(), 0, 0);
+        uint16_t player_x = player.GetRelXPos();
+        uint8_t player_y = player.GetRelYPos();
+        gfx_RLETSprite_NoClip(player.GetSprite(), player_x, player_y);
+        
         gfx_SwapDraw();  // Queue the buffered frame to be displayed
     }
 
     void
-    Game::fix30FPS()
+    Game::Fix30FPS()
     {
         while(timer_1_Counter < (CLOCK_FREQ / FRAMERATE));
 

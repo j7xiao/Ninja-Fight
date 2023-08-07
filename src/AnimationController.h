@@ -15,9 +15,9 @@ namespace J7
         uint8_t m_currentDelay { 0 };
         uint8_t m_delayCount;
 
-        gfx_rletsprite_t** m_spritePath;
-
     public:
+        gfx_rletsprite_t** m_spritePath;
+    
         AnimationController(uint8_t totalTiles, uint8_t delayCount
                           , gfx_rletsprite_t** spritePath);
         

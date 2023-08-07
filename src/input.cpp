@@ -8,7 +8,7 @@
 
 namespace J7
 {
-    J7::Input input{}; 
+    J7::Input input{};
     
     Input::Input()
     {
@@ -61,7 +61,8 @@ namespace J7
                 break;
 
             case ERROR:
-                handle_error("input logic >.<", true);              
+                handle_error("Input::UpdateKey()", true);
+                break;              
 
             default:
                 break;
@@ -190,7 +191,7 @@ namespace J7
                 return (m_up == PRESSED    || m_up == HELD);
 
             case kb_KeyDown:
-                return (m_down == PRESSED || m_clear == HELD);
+                return (m_down == PRESSED  || m_clear == HELD);
 
             default:
                 handle_error("Input::IsKeyDown()", true);
